@@ -1,3 +1,22 @@
+/* Función del loader */
+window.addEventListener("DOMContentLoaded", () => {
+    showLoader();
+})
+
+window.addEventListener("load", () => {
+    setTimeout(()=>{
+        hideLoader();
+    },2000);
+})
+
+const loader = document.getElementById("loader");
+const showLoader = () => {
+    loader.classList.add("show_loader")
+}
+const hideLoader = () => {
+    loader.classList.remove("show_loader");
+}
+
 /* Función para volver al inicio de la pagina*/
 const backBoton = document.getElementById("back-boton");
 backBoton.addEventListener("click", function () {

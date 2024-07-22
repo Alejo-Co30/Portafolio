@@ -15,13 +15,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"crossorigin="anonymous"/>
     <!-- CSS -->
     <link rel="stylesheetBo" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Unna&display=swap" rel="stylesheet">
     </head>
   <body>
+    <!-- Pantalla de carga -->
+    <div class="loader-page">
+      <div class="page-container">
+        <div class="circle-sun">
+          <div class="sun"></div>
+        </div>
+        <div class="orbit-rocket">
+          <i class=" rocket bi bi-rocket-takeoff-fill"></i>
+        </div>
+      </div>
+      <!-- Interruptor de temas -->
+      <div class="toggle-theme">
+        <input type="checkbox" class="checkbox" id="toggle-btn">
+        <label for="toggle-btn" class="label"></label>
+        <div class="toggle-icons">
+          <span class="color-sun bi bi-brightness-high-fill"></span>
+          <span class="color-moon bi bi-moon-fill"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Loader -->
+    <div id="loader" class="loaderPagina">
+      <div class="loaderBox">
+        <div class="loader_1"></div>
+        <div class="loader_2"></div>
+      </div>
+     </div>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-md">
       <div class="container-fluid">
@@ -62,17 +89,6 @@
         <h1>Hola, Soy Luis Carvajal</h1>
         <h2>Desarrollo sitios Web y soy un entusiasta de la tecnología</h2>
       </div>
-      <!--<div class="espacio-circulo">
-        <div class="circulo"></div>
-      </div>-->
-        <div class="nubes">
-          <i class="one bi bi-cloudy-fill"></i>
-          <i class="two bi bi-cloudy-fill"></i>
-          <i class="tree bi bi-cloudy-fill"></i>
-          <i class="four bi bi-cloudy-fill"></i>
-          <i class="five bi bi-cloudy-fill"></i>
-          <i class="six bi bi-cloudy-fill"></i>
-        </div>
       <div class="hero-inferior">
         <img class="hero-inferior-imagen img-fluid" src="/img/hero-interior.png" alt="Lapto, telefono, tv, tablet de Imagen de rawpixel.com en Freepik">
       </div>
@@ -329,6 +345,6 @@
     </div>
    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
-    <script src="/Js/JavaScript.js"></script>
+    <script src="/Js/index.js"></script>
   </body>
 </html>
