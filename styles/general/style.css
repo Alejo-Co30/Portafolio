@@ -68,7 +68,7 @@ h1 {
   width: 100%;
   left: 0px;
   top: 0px;
-  background-color: #000000;
+  background-color: var(--color-azul-oceano);
 }
 .page-container {
   display: flex;
@@ -77,26 +77,45 @@ h1 {
   height: 80%;
   width: 80%;
 }
-.circle-sun, .sun {
-  border-radius: 50%;
+
+.circle-star, .star {
   animation: flicker-on 2s linear both;
-  /*animation: flicker-off 2s linear both;*/
 }
-.circle-sun {
+.circle-star {
   position: absolute;
   height: 20vw;
   width: 20vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:var(--color-moon);
+  border-radius: 50%;
+  background-color:var(--color-circle-sun);
 }
-.circle-sun .sun {
+.circle-star .star {
   height: 19vw;
   width: 19vw;
-  /*background-color:var(--color-sun);*/
+  border-radius: 50%;
+  background-color: var(--color-sun);
 }
-.orbit-rocket {
+.circle-moon-off {
+  position: absolute;
+  height: 20vw;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-moon);
+  animation: flicker-off 0.5s linear both;
+}
+.circle-moon-off .star-moon {
+  height: 19vw;
+  width: 19vw;
+  border-radius: 50%;
+  background-color: var(--color-moon);
+}
+
+.orbit-vehicle {
   position: absolute;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.247) transparent transparent transparent;
@@ -106,20 +125,25 @@ h1 {
   height: 40vw;
   animation: orbit 4s infinite linear;
 }
-.orbit-rocket .rocket {
+.orbit-vehicle .plane {
+  display: inline-block;
   position: absolute;
   font-size: 5vw;
   top: 4vw;
   right:1vw;
-  transform: rotate(90deg);
-  color: white;
+  transform: rotate(140deg);
+  color: rgb(255, 255, 255);
+}
+
+.orbit-vehicle .rocket {
+  display: none;
 }
 /* Interruptor de temas */
 .toggle-theme {
   position: fixed;
-  top: 75%;
-  right: 20%;
-  background-color: #ffffff;
+  top: 20%;
+  right: 15%;
+  background-color: #000000;
   border-radius: 50px;
   width: 80px;
   height: 30px;
@@ -127,8 +151,9 @@ h1 {
 .toggle-theme label {
   display: flex;
   position: absolute;
-  background-color: #000000;
+  background-color: var(--color-moon);
   border-radius: 50px;
+  border: 1px solid #00000025;
   width: 25px;
   height: 25px;
   top: 10%;
@@ -136,28 +161,85 @@ h1 {
   cursor: pointer;
   transition: all 0.5s ease 0s;
 }
-.toggle-theme input {
-  display: none;
-}
 .toggle-theme .toggle-icons {
   display: flex;
   justify-content: space-around;
   font-size: 20px;
 }
-.toggle-theme input:checked ~ .toggle-icons {
+.toggle-theme .color-sun {
   color: var(--color-sun);
-  transition: all 0.5s ease-in-out 0.5s;
 }
-
-.toggle-theme .toggle-icons .color-moon {
-  color: var(--color-btn-info);
+.toggle-icons .color-moon {
+  color: var(--color-moon);
 }
-
 .toggle-theme input:checked + label {
-  margin-left: 45px
+  margin-left: 45px;
+  background-color: var(--color-sun);
+}
+/* Tema oscuro */
+.loader-page-black {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  background-color:#000;
+}
+.orbit-vehicle .hide-plane {
+  display: none;
 }
 
-
+.orbit-vehicle .show-rocket {
+  display: inline-block;
+  position: absolute;
+  font-size: 5vw;
+  top: 4vw;
+  right:1vw;
+  transform: rotate(90deg);
+  color: rgb(255, 255, 255);
+}
+.circle-star-off, .star-off {
+  animation: flicker-off 0.5s linear both;
+}
+.circle-moon, .moon {
+  animation: flicker-on 2s linear both;
+}
+.circle-star-off {
+  position: absolute;
+  height: 20vw;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color:var(--color-circle-sun);
+}
+.circle-star-off .star-off {
+  height: 19vw;
+  width: 19vw;
+  border-radius: 50%;
+  background-color: var(--color-sun);
+}
+.circle-moon {
+  position: absolute;
+  height: 20vw;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-moon);
+}
+.circle-moon .moon {
+  height: 19vw;
+  width: 19vw;
+  border-radius: 50%;
+  background-color: var(--color-moon);
+}
 /* Loader */
 .loaderPagina {
   display: none;
@@ -272,19 +354,19 @@ color: #000000;
   left: 0px;
 }
  /* Sobre mi */ 
- .sobre-mi {
+.sobre-mi {
   height: 50%;
   padding: 20px;
- }
- .sobre-mi .contenedor {
+}
+.sobre-mi .contenedor {
   max-width: 600px;
   text-align: center;
- }
+}
 
- /* Experiencias*/
+/* Experiencias*/
 .experiencia {
   padding: 40px 40px 20px;
- }
+}
 .experiencia .columna {
   padding: 20px;
   border: 2px solid #8080804d;
@@ -596,19 +678,48 @@ footer {
   .box {
     left: 93%;
   }
-  .circle-sun {
+  .circle-star {
     height: 10vw;
     width: 10vw;
   }
-  .circle-sun .sun {
+  .circle-star .star {
     height: 9.5vw;
     width: 9.5vw;
   }
-  .orbit-rocket {
+  .circle-moon {
+    height: 10vw;
+    width: 10vw;
+  }
+  .circle-moon .moon {
+    height: 9.5vw;
+    width: 9.5vw;
+  }
+  .circle-star-off {
+    height: 10vw;
+    width: 10vw;
+  }
+  .circle-star-off .star-off {
+    height: 9.5vw;
+    width: 9.5vw;
+  }
+  .circle-moon-off {
+    height: 10vw;
+    width: 10vw;
+  }
+  .circle-moon-off .moon-off {
+    height: 9.5vw;
+    width: 9.5vw;
+  }
+  .orbit-vehicle {
     width: 20vw;
     height: 20vw;
   }
-  .orbit-rocket .rocket {
+  .orbit-vehicle .show-rocket {
+    font-size: 2.5vw;
+    top: 2vw;
+    right:0.7vw;
+  }
+  .orbit-vehicle .plane {
     font-size: 2.5vw;
     top: 2vw;
     right:0.7vw;

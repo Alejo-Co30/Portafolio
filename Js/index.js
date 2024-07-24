@@ -1,5 +1,5 @@
 /* Función del loader */
-window.addEventListener("DOMContentLoaded", () => {
+/*window.addEventListener("DOMContentLoaded", () => {
     showLoader();
 })
 
@@ -15,6 +15,62 @@ const showLoader = () => {
 }
 const hideLoader = () => {
     loader.classList.remove("show_loader");
+}
+
+
+/* Funcion cambio de tema black */
+const themeBlack = document.getElementById("toggle-label")
+themeBlack.addEventListener("click", function() {
+    transicionStar();
+    setTimeout(()=>{
+        transicionStarOff();
+    },1000);
+    }
+)
+
+/* Funcion cambio de tema white */
+const themeWhite = document.getElementById("toggle-label")
+themeWhite.addEventListener("click", function() {
+    transicionMoon();
+    setTimeout(()=>{
+        transicionMoonOff();
+    },1000);
+    }
+)
+
+/* Función para alternar el cambio de tema black en la pantalla inicial */
+function transicionStar () {
+    if (document.getElementById('circle-moon').classList.contains("circle-star")){
+        document.getElementById('loader-page').classList.replace("loader-page", "loader-page-black");
+        document.getElementById('circle-moon').classList.replace("circle-star", "circle-star-off");
+        document.getElementById('moon').classList.replace("star", "star-off");
+        document.getElementById('plane').classList.replace("plane", "hide-plane");
+        document.getElementById('rocket').classList.replace("rocket", "show-rocket");
+        document.getElementById('toggle-theme').style.background=("white");
+    }
+}
+function transicionStarOff () {
+    if(document.getElementById('circle-moon').classList.contains("circle-star-off")){
+        document.getElementById('circle-moon').classList.replace("circle-star-off","circle-moon");
+        document.getElementById('moon').classList.replace("star-off", "moon");
+    }
+}
+/* Función para alternar el cambio de tema white en la pantalla inicial */
+function transicionMoon () {
+    if(document.getElementById('circle-moon').classList.contains("circle-moon")){
+        document.getElementById('loader-page').classList.replace("loader-page-black", "loader-page");
+        document.getElementById('circle-moon').classList.replace("circle-moon","circle-moon-off");
+        document.getElementById('moon').classList.replace("moon", "moon-off");
+        document.getElementById('plane').classList.replace("hide-plane", "plane");
+        document.getElementById('rocket').classList.replace("show-rocket", "rocket");
+        document.getElementById('toggle-theme').style.background=("black");
+    }
+}
+function transicionMoonOff () {
+    if(document.getElementById('circle-moon').classList.contains("circle-moon-off")){
+        document.getElementById('circle-moon').classList.replace("circle-moon-off","circle-star");
+        document.getElementById('moon').classList.replace("moon-off", "star");
+    }
 }
 
 /* Función para volver al inicio de la pagina*/
