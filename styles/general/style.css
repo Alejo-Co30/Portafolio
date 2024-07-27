@@ -19,8 +19,16 @@ h1 {
   font-family: "Merriweather", serif; 
 }
 .seccion-oscura {
-  background-color: black;
   color: white;
+  background-color:#000000;
+}
+.seccion-gradiante {
+  color: white;
+  background: linear-gradient(45deg,  rgb(0, 0, 0), rgb(0, 0, 0), rgba(36, 61, 255));
+  background-size: 200% 200%;
+  /*background-image: linear-gradient(to bottom left,  rgb(0, 0, 0), rgb(0, 0, 0), rgba(36, 61, 255))*/
+  /*animation: chance-color-x3 10s ease infinite;*/
+  animation: chance-color-x3 4s linear infinite;
 }
 .seccion-clara {
   color: black;
@@ -62,22 +70,66 @@ h1 {
   position: fixed;
   z-index: 9999;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
-  left: 0px;
-  top: 0px;
   background-color: var(--color-azul-oceano);
 }
+.loader-page-black::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  filter: 
+      drop-shadow( 0 0 10px rgba(255, 255, 255, 0.6))
+      drop-shadow( 0 0 10px rgba(255, 255, 255, 0.4))
+      drop-shadow( 0 0 10px rgba(255, 255, 255, 0.2));
+  box-shadow:
+    180px 0px 2px 1px white, 160px 220px 2px 1px white, 0px 300px 2px 1px white, 300px -90px 2px 1px white, 380px -190px 2px 1px white, 250px -250px 2px 1px white, 240px -120px 2px 1px white, 70px -320px 2px 1px white,
+    -150px 220px 2px 1px white, -240px 90px 2px 1px white, -270px 10px 2px 1px white, -350px -90px 2px 1px white, -440px 150px 2px 1px white, -380px -230px 2px 1px white, -420px 180px 2px 1px white, -460px -310px 2px 1px white,
+    160px 40px 2px 1px white, 220px 0px 2px 1px white, 460px -70px 2px 1px white, 500px 0px 2px 1px white, 340px 50px 2px 1px white, -200px -240px 2px 1px white, -180px -180px 2px 1px white, -460px 10px 2px 1px white,
+    -550px 60px 2px 1px white, -220px 410px 2px 1px white, 560px -310px 2px 1px white, -300px 100px 2px 1px white, 340px 410px 2px 1px white, 380px 380px 2px 1px white, 420px 120px 2px 1px white, 460px -90px 2px 1px white;
+}
+
 .page-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80%;
-  width: 80%;
+  height: 50%;
+  width: 50%;
+}
+.box-conoceme {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
 }
 
+.box-conoceme span {
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  margin: 10px;
+}
+.btn-ingreso {
+  background-color: #000000;
+  font-weight: bolder;
+  border: none;
+  border-radius: 50px;
+  width: 140px;
+  height: 40px;
+  transition: all 0.5s ease-in-out;
+}
+.btn-ingreso:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
 .circle-star, .star {
   animation: flicker-on 2s linear both;
 }
@@ -114,7 +166,6 @@ h1 {
   border-radius: 50%;
   background-color: var(--color-moon);
 }
-
 .orbit-vehicle {
   position: absolute;
   border-style: solid;
@@ -134,10 +185,10 @@ h1 {
   transform: rotate(140deg);
   color: rgb(255, 255, 255);
 }
-
 .orbit-vehicle .rocket {
   display: none;
 }
+
 /* Interruptor de temas */
 .toggle-theme {
   position: fixed;
@@ -181,6 +232,7 @@ h1 {
   position: fixed;
   z-index: 9999;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -188,6 +240,19 @@ h1 {
   left: 0px;
   top: 0px;
   background-color:#000;
+}
+.btn-ingreso-black {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: bolder;
+  border: none;
+  border-radius: 50px;
+  width: 140px;
+  height: 40px;
+  transition: all 0.5s ease-in-out;
+}
+.btn-ingreso-black:hover {
+  background-color: var(--color-sun);
 }
 .orbit-vehicle .hide-plane {
   display: none;
@@ -255,7 +320,7 @@ h1 {
   /*z-index: 9997;*/
   justify-content: center;
   align-items: center;
-  animation: degradado 2s linear;
+  animation: degradado 1.5s linear;
   animation-fill-mode: backwards;
 }
 .loaderBox {
@@ -271,7 +336,7 @@ h1 {
   border-left-color: transparent;
   border-bottom: none;
   border-radius: 50%;
-  animation: espiner_1 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+  animation: espiner_1 0.5s cubic-bezier(0.1, 0.61, 0.58, 0.41) infinite;
 }
 .loaderBox .loader_2 {
   position: absolute;
@@ -283,12 +348,11 @@ h1 {
   border-radius: 50%;
   left: calc(50% - 20px);
   top: calc(50% - 20px);
-  animation:  espiner_2 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+  animation:  espiner_2 0.5s cubic-bezier(0.1, 0.61, 0.58, 0.41) infinite;
 }
 /* Barra de navegacion */
 .navbar {
   padding: 0.5rem;
-  background-color: #000000;
 }
 .navbar-nav {
   transition: all 0.2s ease;

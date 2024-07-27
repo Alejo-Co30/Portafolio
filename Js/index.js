@@ -7,8 +7,19 @@ window.addEventListener("load", () => {
     setTimeout(()=>{
         hideLoader();
     },2000);
-})
+})*/
 
+
+/* Funcion de ingreso a la página principal */
+const knowMe = document.getElementById("btn-conoceme")
+knowMe.addEventListener("click", function() {
+    showLoader();
+    document.getElementById("loader-page").style.display="none";
+    setTimeout(()=>{
+        hideLoader();
+    },1500);
+    }
+)
 const loader = document.getElementById("loader");
 const showLoader = () => {
     loader.classList.add("show_loader")
@@ -16,7 +27,6 @@ const showLoader = () => {
 const hideLoader = () => {
     loader.classList.remove("show_loader");
 }
-
 
 /* Funcion cambio de tema black */
 const themeBlack = document.getElementById("toggle-label")
@@ -47,6 +57,7 @@ function transicionStar () {
         document.getElementById('plane').classList.replace("plane", "hide-plane");
         document.getElementById('rocket').classList.replace("rocket", "show-rocket");
         document.getElementById('toggle-theme').style.background=("white");
+        document.getElementById('btn-conoceme').classList.replace("btn-ingreso", "btn-ingreso-black")
     }
 }
 function transicionStarOff () {
@@ -64,6 +75,7 @@ function transicionMoon () {
         document.getElementById('plane').classList.replace("hide-plane", "plane");
         document.getElementById('rocket').classList.replace("show-rocket", "rocket");
         document.getElementById('toggle-theme').style.background=("black");
+        document.getElementById('btn-conoceme').classList.replace("btn-ingreso-black", "btn-ingreso")
     }
 }
 function transicionMoonOff () {
